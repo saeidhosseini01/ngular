@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatTabsModule } from '@angular/material/tabs';
-import { Observable } from 'rxjs';
+import { map, Observable, shareReplay } from 'rxjs';
 import { TODO } from '../todo';
 import { CommonModule } from '@angular/common';
 @Component({
@@ -16,11 +16,10 @@ import { CommonModule } from '@angular/common';
 
 export class HomeComponent implements OnInit {
   public http$?: Observable<TODO[]>;
-  public doneTodo? :TODO[];
-  public undoneTodo? :TODO[];
+  public doneTodo$? :Observable<TODO[]>;
+  public undoneTodo$? :Observable<TODO[]>;
   public ngOnInit() {
     this.http$ = new Observable((observe) => {
-
       fetch('https://jsonplaceholder.typicode.com/todos')
         .then((res) => {
 
@@ -32,11 +31,15 @@ export class HomeComponent implements OnInit {
           observe.error(err);
         })
     });
-
-    this.http$.subscribe((val)=>{
-      this.doneTodo=val.filter(i=>i.completed==true)
-      this.undoneTodo=val.filter(i=>i.completed==false)
-    })
+    this.http$=this.http$.pipe(
+      shareReplay();
+    );
+    this.doneTodo$=this.http$.pipe(
+      map((todo)=> todo.filter(t=>t.completed==true))
+    )
+    this.undoneTodo$=this.http$.pipe(
+      map((todo)=> todo.filter(t=>t.completed==false))
+    )
   }
 
 }

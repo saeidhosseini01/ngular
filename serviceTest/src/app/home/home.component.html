@@ -8,7 +8,7 @@
 
 
 
-      <div class="alert alert-success d-flex align-items-center" *ngFor="let todo of doneTodo">
+      <div class="alert alert-success d-flex align-items-center" *ngFor="let todo of doneTodo$ | async">
         <svg class="bi flex-shrink-0 me-2" width="24" height="24">
           <use xlink:href="#check-circle-fill"></use>
         </svg>
@@ -18,8 +18,7 @@
     
     </mat-tab>
     <mat-tab label="Second">  
-      
-      <div class="alert alert-success d-flex align-items-center" *ngFor="let todo of undoneTodo">
+      <div class="alert alert-success d-flex align-items-center" *ngFor="let todo of undoneTodo$ | async">
         <svg class="bi flex-shrink-0 me-2" width="24" height="24">
           <use xlink:href="#check-circle-fill"></use>
         </svg>
