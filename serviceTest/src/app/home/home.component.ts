@@ -4,9 +4,10 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { map, Observable, shareReplay } from 'rxjs';
 import { TODO } from '../todo';
 import { CommonModule } from '@angular/common';
+import { ClickingComponent } from '../clicking/clicking.component';
 @Component({
   selector: 'app-home',
-  imports: [MatTabsModule,CommonModule],
+  imports: [MatTabsModule,CommonModule,ClickingComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -32,8 +33,8 @@ export class HomeComponent implements OnInit {
         })
     });
     this.http$=this.http$.pipe(
-      shareReplay();
-    );
+      shareReplay()
+    )
     this.doneTodo$=this.http$.pipe(
       map((todo)=> todo.filter(t=>t.completed==true))
     )
