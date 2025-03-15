@@ -5,15 +5,13 @@ import { map, Observable, shareReplay } from 'rxjs';
 import { TODO } from '../todo';
 import { CommonModule } from '@angular/common';
 import { ClickingComponent } from '../clicking/clicking.component';
+import { AbserverTestComponent } from '../abserver-test/abserver-test.component';
 @Component({
   selector: 'app-home',
-  imports: [MatTabsModule,CommonModule,ClickingComponent],
+  imports: [MatTabsModule,CommonModule,ClickingComponent,AbserverTestComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-
-
-
 
 export class HomeComponent implements OnInit {
   public http$?: Observable<TODO[]>;
@@ -23,7 +21,6 @@ export class HomeComponent implements OnInit {
     this.http$ = new Observable((observe) => {
       fetch('https://jsonplaceholder.typicode.com/todos')
         .then((res) => {
-
           return res.json();
         }).then((body) => {
           observe.next(body);
