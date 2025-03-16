@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { fromEvent, map, tap } from 'rxjs';
+import { fromEvent, map, take, takeWhile, tap } from 'rxjs';
 
 @Component({
   selector: 'app-pipetest',
@@ -26,6 +26,8 @@ export class PipetestComponent implements OnInit {
         y:item.offsetY
       }
      }),
+     take(3),
+     takeWhile(t=>t.x>1000),
      tap(item=>console.log(item))
     ).subscribe()
   }
