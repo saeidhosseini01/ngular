@@ -6,9 +6,10 @@ import { TODO } from '../todo';
 import { CommonModule } from '@angular/common';
 import { ClickingComponent } from '../clicking/clicking.component';
 import { AbserverTestComponent } from '../abserver-test/abserver-test.component';
+import { PipetestComponent } from '../pipetest/pipetest.component';
 @Component({
   selector: 'app-home',
-  imports: [MatTabsModule,CommonModule,ClickingComponent,AbserverTestComponent],
+  imports: [MatTabsModule,CommonModule,ClickingComponent,AbserverTestComponent,PipetestComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
