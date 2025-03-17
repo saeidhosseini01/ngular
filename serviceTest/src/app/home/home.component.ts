@@ -7,9 +7,12 @@ import { CommonModule } from '@angular/common';
 import { ClickingComponent } from '../clicking/clicking.component';
 import { AbserverTestComponent } from '../abserver-test/abserver-test.component';
 import { PipetestComponent } from '../pipetest/pipetest.component';
+import { ExhaspamComponent } from '../exhaspam/exhaspam.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 @Component({
   selector: 'app-home',
-  imports: [MatTabsModule,CommonModule,ClickingComponent,AbserverTestComponent,PipetestComponent],
+  imports: [MatTabsModule,CommonModule,ClickingComponent,AbserverTestComponent
+    ,PipetestComponent,ExhaspamComponent,HttpClientModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

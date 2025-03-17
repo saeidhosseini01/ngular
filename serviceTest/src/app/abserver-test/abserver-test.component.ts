@@ -1,6 +1,6 @@
 
 import { Component, ElementRef, input, OnInit, ViewChild, viewChild } from '@angular/core';
-import { from, fromEvent, of } from 'rxjs';
+import { from, fromEvent, map, of, tap } from 'rxjs';
 import { __importDefault } from 'tslib';
 
 @Component({
@@ -18,8 +18,14 @@ export class AbserverTestComponent  implements OnInit{
    @ViewChild('input',{}) input?:ElementRef;
   ngOnInit()  {
 //this.http.get('assests/mockdata.json').subscribe(console.log)
-fromEvent(this.input?.nativeElement,'input' ).subscribe(i=> console.log)
+fromEvent(this.input?.nativeElement,'input' ).pipe(
 
+  tap(i=>console.log(i)),
+  map(event=> event as InputEvent),
+ 
+  
+  tap(i=>console.log(i)),
+).subscribe()
 
     of(['name','family','tell']).subscribe(t=>{
       this.result=t
