@@ -1,1 +1,6 @@
 <input type="text" #termsearch>
+<div>
+    <div *ngFor="let user of users$ | async">
+<div>{{user.name }} {{user.email}}</div>
+    </div>
+</div>
