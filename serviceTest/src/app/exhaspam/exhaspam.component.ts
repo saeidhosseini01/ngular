@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { concatMap, delay, exhaustMap, fromEvent, mergeMap, of, tap } from 'rxjs';
+import { delay, exhaustMap, fromEvent, mergeMap, of, tap } from 'rxjs';
 
 @Component({
   selector: 'app-exhaspam',
@@ -22,7 +22,7 @@ tap(i=>console.log(i))
     ).subscribe(console.log);
     fromEvent(this.editebutton?.nativeElement,'click').pipe(
       tap(()=>console.log('clicked')),
-     concatMap(()=>this.pathsingelPost()),
+      exhaustMap(()=>this.pathsingelPost()),
       tap(i=>console.log(i))).subscribe()
     
   }
