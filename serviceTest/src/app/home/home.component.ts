@@ -10,10 +10,11 @@ import { PipetestComponent } from '../pipetest/pipetest.component';
 import { ExhaspamComponent } from '../exhaspam/exhaspam.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { SwitchMapComponent } from '../switch-map/switch-map.component';
+import { CompairComponent } from '../compair/compair.component';
 @Component({
   selector: 'app-home',
   imports: [MatTabsModule,CommonModule,ClickingComponent,AbserverTestComponent
-    ,PipetestComponent,ExhaspamComponent,HttpClientModule,SwitchMapComponent],
+    ,PipetestComponent,ExhaspamComponent,HttpClientModule,SwitchMapComponent,CompairComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
