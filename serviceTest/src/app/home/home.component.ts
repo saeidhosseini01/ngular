@@ -11,10 +11,12 @@ import { ExhaspamComponent } from '../exhaspam/exhaspam.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { SwitchMapComponent } from '../switch-map/switch-map.component';
 import { CompairComponent } from '../compair/compair.component';
+import { JoinForkComponent } from '../join-fork/join-fork.component';
 @Component({
   selector: 'app-home',
   imports: [MatTabsModule,CommonModule,ClickingComponent,AbserverTestComponent
-    ,PipetestComponent,ExhaspamComponent,HttpClientModule,SwitchMapComponent,CompairComponent],
+    ,PipetestComponent,ExhaspamComponent,HttpClientModule
+    ,SwitchMapComponent,CompairComponent,JoinForkComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
