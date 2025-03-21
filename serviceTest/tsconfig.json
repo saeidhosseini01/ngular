@@ -10,7 +10,9 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
-    "isolatedModules": true,
+    "isolatedModules": false,
+    
+    "noImplicitAny": false,
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "moduleResolution": "bundler",

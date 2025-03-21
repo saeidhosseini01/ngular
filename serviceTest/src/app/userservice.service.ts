@@ -20,4 +20,7 @@ export class UserserviceService {
     alert("service")
     return this.http.get<IUser[]>('https://jsonplaceholder.typicode.com/users');
   }
+  public getuserById(userid:number):Observable<IUser>{
+    return this.http.get<IUser>('https://jsonplaceholder.typicode.com/users');
+  }
 }
